@@ -24,19 +24,23 @@ const addNote = (myNote) => {
 const listNotes = () => {
     const allNotes = loadNotes();
 
-    allNotes.map(note=> {
-        console.log(note);
+    allNotes.map((note, index)=> {
+        console.log(`${index + 1}: ${note.reminder}`);
     });
 };
 
 const removeNote = (noteToDelete) => {
     const allNotes = loadNotes();
 
-    const notesToKeep = allNotes.filter(note => {
-        return note.reminder != noteToDelete;
-    });
+    
+    try {
+        const removedItem = allNotes.splice(noteToDelete - 1, 1);
+        console.log(`Successfully removed ${removedItem[0].reminder}`);
+    } catch (error) {
+        console.log("Number our of range");
+    };
 
-    saveNotes(notesToKeep);
+    saveNotes(allNotes);
 };
 
 module.exports = {
