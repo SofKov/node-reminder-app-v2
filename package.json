@@ -1,0 +1,22 @@
+{
+  "name": "reminder-app-v2",
+  "version": "1.0.0",
+  "description": "This is an improved version of node-reminder-app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofKov/node-reminder-app-v2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SofKov/node-reminder-app-v2/issues"
+  },
+  "homepage": "https://github.com/SofKov/node-reminder-app-v2#readme",
+  "dependencies": {
+    "yargs": "^16.2.0"
+  }
+}
