@@ -25,17 +25,16 @@ const listNotes = () => {
     const allNotes = loadNotes();
 
     allNotes.map((note, index)=> {
-        console.log(`${index + 1}: ${note.reminder}`);
+        console.log(`Note ${index + 1}: ${note.reminder}`);
     });
 };
 
 const removeNote = (noteToDelete) => {
     const allNotes = loadNotes();
 
-    
     try {
         const removedItem = allNotes.splice(noteToDelete - 1, 1);
-        console.log(`Successfully removed ${removedItem[0].reminder}`);
+        console.log(`Successfully removed note: ${removedItem[0].reminder}`);
     } catch (error) {
         console.log("Number our of range");
     };

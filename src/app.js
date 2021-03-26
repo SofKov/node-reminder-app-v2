@@ -1,37 +1,11 @@
-// const yargs = require("yargs");
 const chalk = require('chalk');
 const figlet = require('figlet');
 const inquirer = require('inquirer');
 const {addNote, listNotes, removeNote} = require("../utils/notes");
-
-
-const topLevelQ = [
-    {
-        type: "list", 
-        name: "options", 
-        message: "What would you like to do?", 
-        choices: ["add", "remove", "list", "exit"],
-    },
-];
-
-const addQ = [
-    {
-        type: "input",
-        name: "add",
-        message: "What would you like to add?",
-    },
-];
-
-const removeQ = [
-    {
-        type: "input",
-        name: "remove",
-        message: "Which note would you like to remove? Please type a number: ",
-    },
-];
+const {topLevelQ, addQ, removeQ} = require("../utils/questions");
 
 const main = () => {
-    console.log(chalk.magenta.bold(figlet.textSync('Notes App')));
+    console.log(chalk.magenta.bold(figlet.textSync('Notes App', {font: 'Small Keyboard'})));
     app();
 };
 
@@ -47,14 +21,14 @@ const app = async () => {
     } else if (answers.options == "remove"){
         listNotes();
         const answer = await inquirer.prompt(removeQ);
-        removeNote("Removing note:");
+        removeNote(answer.remove);
         app();
     } else if (answers.options == "list"){
         console.log("All notes are displayed below:");
         listNotes();
         app();
     } else if (answers.options == "exit"){
-        console.log("Exiting Notes App");
+        console.log(chalk.magenta.bold(figlet.textSync('Exiting Notes App')));
     } else {
         console.log("Command not recognised");
     };
